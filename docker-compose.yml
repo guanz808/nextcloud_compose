@@ -107,5 +107,5 @@ volumes:
 networks:
   existingnetwork:
     external: true
-    name: nextcloud_network  
+    name: infrastructure_net 
   #nextcloud_network:
