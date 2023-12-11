@@ -65,7 +65,7 @@ services:
 #      - proxy
       - db
     volumes:
-      - nextcloud_movies:/media/movies
+      - nextcloud_entertainment:/entertainment
 #      - /mediastorage/Entertainment_TV:/entertainment_tv
 #      - /mediastorage/EverythingElse:/everythingelse
       - nextcloud:/var/www/html
@@ -100,7 +100,7 @@ volumes:
     driver_opts:
       type: nfs
       o: "addr=192.168.1.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
-      device: ":/volume1/media/movies"           
+      device: ":/volume1/entertainment"           
 
 networks:
   nextcloud_network:
