@@ -46,8 +46,8 @@ services:
       - db:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - MYSQL_ROOT_PASSWORD=test12345
-      - MYSQL_PASSWORD=test12345
+      - MYSQL_ROOT_PASSWORD=<placeholder>
+      - MYSQL_PASSWORD=<placeholder>
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
     restart: unless-stopped
