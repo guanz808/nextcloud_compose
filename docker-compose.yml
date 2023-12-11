@@ -103,4 +103,7 @@ volumes:
       device: ":/volume1/entertainment"           
 
 networks:
-  nextcloud_network:
+  existingnetwork:
+    external: true
+    name: nextcloud_network  
+  #nextcloud_network:
