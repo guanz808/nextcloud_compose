@@ -102,5 +102,5 @@ volumes:
 networks:
   infrastructure_frontend:
     external: true
-    name: infrastructure_net 
+    name: infrastructure_frontend
   #nextcloud_network:
