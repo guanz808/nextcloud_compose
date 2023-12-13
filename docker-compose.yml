@@ -18,8 +18,8 @@ services:
     restart: unless-stopped
   
   app:
-    image: nextcloud
-    container_name: nextcloud-app:latest
+    image: nextcloud:latest
+    container_name: nextcloud-app
     networks:
       - infrastructure_frontend
     ports:
