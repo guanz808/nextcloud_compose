@@ -3,6 +3,7 @@ version: '3.8'
 services:
   db:
     image: mariadb:latest
+    restart: unless-stopped    
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
     container_name: nextcloud-mariadb
     networks:
@@ -15,15 +16,18 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
-    restart: unless-stopped
+
   
   app:
     image: nextcloud:latest
+    restart: unless-stopped    
     container_name: nextcloud-app
     networks:
       - infrastructure_frontend
     ports:
-      - 81:80     
+      - 8080:80  
+    links:
+      - db     
     depends_on:
       - db
     volumes:
@@ -31,8 +35,10 @@ services:
       - data:/var/www/html
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - VIRTUAL_HOST=www.dajays.com
-    restart: unless-stopped
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
 
 volumes:
   data:
