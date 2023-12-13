@@ -23,7 +23,7 @@ services:
     networks:
       - infrastructure_frontend
     ports:
-      - 81118:80     
+      - 8088:80     
     depends_on:
       - db
     volumes:
