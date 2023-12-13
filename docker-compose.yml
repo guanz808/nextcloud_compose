@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: mariadb
+    image: mariadb:latest
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
     container_name: nextcloud-mariadb
     networks:
@@ -19,7 +19,7 @@ services:
   
   app:
     image: nextcloud
-    container_name: nextcloud-app
+    container_name: nextcloud-app:latest
     networks:
       - infrastructure_frontend
     ports:
