@@ -61,6 +61,6 @@ volumes:
       device: ":/volume1/entertainment"           
 
 networks:
-  infrastructure_frontend:
+  ${NW_LOC}infrastructure_frontend:
     external: true
-    name: infrastructure_frontend
+    name: ${NW_LOC}infrastructure_frontend
