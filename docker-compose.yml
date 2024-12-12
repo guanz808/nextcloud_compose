@@ -6,7 +6,7 @@ services:
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
     container_name: nextcloud-mariadb
     networks:
-      - infrastructure_frontend
+      - frontend
     volumes:
       - db:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
@@ -22,7 +22,7 @@ services:
     restart: unless-stopped    
     container_name: nextcloud-app
     networks:
-      - infrastructure_frontend
+      - frontend
     ports:
       - 8080:80  
     links:
@@ -60,6 +60,6 @@ volumes:
       device: ":/volume1/entertainment"           
 
 networks:
-  infrastructure_frontend:
-    #external: true
-    name: infrastructure_frontend
+  frontend:
+    external: true
+    name: frontend
