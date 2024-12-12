@@ -1,2 +1,2 @@
 # NextCloud Deployment  
-NextCloud
+NextCloud with docker compose
