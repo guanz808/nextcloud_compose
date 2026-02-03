@@ -17,7 +17,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
   
   app:
-    image: nextcloud:stable
+    image: nextcloud
     restart: unless-stopped    
     container_name: nextcloud-app
 #    labels:
