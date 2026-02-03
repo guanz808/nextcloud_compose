@@ -36,7 +36,8 @@ services:
       # - "traefik.http.routers.nextcloud.tls.certresolver=le"
 
       - "traefik.http.routers.nextcloud.service=nextcloud"
-      - "traefik.http.services.nextcloud.loadbalancer.server.port=8080"
+      #- "traefik.http.services.nextcloud.loadbalancer.server.port=8080"
+      - "traefik.http.services.nextcloud.loadbalancer.server.url=http://nextcloud.dajays.com:8080"
 
     environment:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
@@ -46,7 +47,7 @@ services:
     env_file: .env          
     networks:
       - frontend
-#    ports:
+    ports:
 #      - 8080:80  
     links:
       - db     
