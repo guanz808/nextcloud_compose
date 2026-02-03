@@ -20,22 +20,7 @@ services:
     image: nextcloud:32.0.5
     restart: unless-stopped    
     container_name: nextcloud-app
-<<<<<<< HEAD
-    labels:
-      - "traefik.enable=true"
-      #- "traefik.http.routers.nginx.rule=Host(`nextcloud.dajays.com`)"
-      #- "traefik.http.routers.nginx.entrypoints=https"
-      #- "traefik.http.routers.nginx.tls=true"
-      #- "traefik.http.services.nginx.loadbalancer.server.port=8080"    
-      ##################test
-      - "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme=https"
-        # HTTPS
-      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.dajays.com`)"
-      - "traefik.http.routers.nextcloud.entrypoints=https"
-      - "traefik.http.routers.nextcloud.tls=true"
-      # uncomment only if you actually have this resolver
-      # - "traefik.http.routers.nextcloud.tls.certresolver=le"
-=======
+
 #    labels:
 #      - "traefik.enable=true"
 #      #- "traefik.http.routers.nginx.rule=Host(`nextcloud.dajays.com`)"
@@ -53,7 +38,6 @@ services:
 #
 #      - "traefik.http.routers.nextcloud.service=nextcloud"
 #      - "traefik.http.services.nextcloud.loadbalancer.server.port=8080"
->>>>>>> 6260e5b46a54f0e3ad36c2e0b2b11500f3e520e2
 
     environment:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
