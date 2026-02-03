@@ -23,14 +23,14 @@ services:
     labels:
       - "traefik.enable=true"
       #- "traefik.http.routers.nginx.rule=Host(`nextcloud.dajays.com`)"
-      #- "traefik.http.routers.nginx.entrypoints=websecure"
+      #- "traefik.http.routers.nginx.entrypoints=https"
       #- "traefik.http.routers.nginx.tls=true"
       #- "traefik.http.services.nginx.loadbalancer.server.port=8080"    
       ##################
       - "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme=https"
         # HTTPS
       - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.dajays.com`)"
-      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.entrypoints=https"
       - "traefik.http.routers.nextcloud.tls=true"
       # uncomment only if you actually have this resolver
       # - "traefik.http.routers.nextcloud.tls.certresolver=le"
