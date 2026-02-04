@@ -55,40 +55,47 @@ services:
     links:
       - db     
     volumes:
+      - app:/var/www/html
+      #- data:/var/www/html/data
+      #- config:/var/www/html/config
+      #- custom_apps:/var/www/html/custom_apps
+      #- theme:/var/www/html/themes
       - entertainment:/entertainment
-      - data:/var/www/html/data
-      - config:/var/www/html/config
-      - custom_apps:/var/www/html/custom_apps
-      - themes:/var/www/html/themes
       - /etc/localtime:/etc/localtime:ro
     depends_on:
       - db
       
 volumes:
-  data:
+  app:
     driver: local
     driver_opts:
       type: nfs
       o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
-      device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/data"
-  config:
-    driver: local
-    driver_opts:
-      type: nfs
-      o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
-      device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/config"
-  custom_apps:
-    driver: local
-    driver_opts:
-      type: nfs
-      o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
-      device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/custom_apps"
-  themes:
-    driver: local
-    driver_opts:
-      type: nfs
-      o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
-      device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/themes"      
+      device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/app"
+  #data:
+  #  driver: local
+  #  driver_opts:
+  #    type: nfs
+  #    o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
+  #    device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/app/data"    
+  #config:
+  #  driver: local
+  #  driver_opts:
+  #    type: nfs
+  #    o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
+  #    device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/app/config"
+  #custom_apps:
+  #  driver: local
+  #  driver_opts:
+  #    type: nfs
+  #    o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
+  #    device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/app/custom_apps"
+  #theme:
+  #  driver: local
+  #  driver_opts:
+  #    type: nfs
+  #    o: "addr=10.69.5.11,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14,nfsvers=4"
+  #    device: ":/volume1/${NFS_SHARED_FOLDER}/nextcloud/app/themes"      
   db:
     driver: local
     driver_opts:
