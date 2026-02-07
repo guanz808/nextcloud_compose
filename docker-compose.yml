@@ -25,6 +25,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.nextcloud-app.rule=Host(`nextcloud.dajays.com`)"
       - "traefik.http.routers.nextcloud-app.entrypoints=web"
+      - "traefik.http.routers.nextcloud-app.service=nextcloud-app"
 #      - "traefik.http.routers.nextcloud-app.tls=true"
       - "traefik.http.services.nextcloud-app.loadbalancer.server.port=80"    
       ##################
