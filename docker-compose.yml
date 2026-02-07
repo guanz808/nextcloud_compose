@@ -25,9 +25,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.nextcloud-app.rule=Host(`nextcloud.dajays.com`)"
       - "traefik.http.routers.nextcloud-app.entrypoints=web"
-      - "traefik.http.routers.nextcloud-app.service=nextcloud-app"
+#      - "traefik.http.routers.nextcloud-app.service=nextcloud-app"
 #      - "traefik.http.routers.nextcloud-app.tls=true"
-      - "traefik.http.services.nextcloud-app.loadbalancer.server.port=80"    
+#      - "traefik.http.services.nextcloud-app.loadbalancer.server.port=80"    
       ##################
       #- "traefik.http.middlewares.nextcloud-app.redirectscheme.scheme=https"
 #        # HTTPS
@@ -51,8 +51,8 @@ services:
     env_file: .env          
     networks:
       - frontend
-#    ports:
-#      - 8000:80  
+    ports:
+      - 8000:80  
     links:
       - db     
     volumes:
