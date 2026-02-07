@@ -28,7 +28,7 @@ services:
       - "traefik.http.routers.nextcloud-app.tls=true"
       - "traefik.http.services.nextcloud-app.loadbalancer.server.port=8080"    
       ##################
-#      - "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.nextcloud-app.redirectscheme.scheme=https"
 #        # HTTPS
 #      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.dajays.com`)"
 #      - "traefik.http.routers.nextcloud.entrypoints=https"
